@@ -48,20 +48,27 @@ export default defineConfig({
   },
   server: {
     proxy: {
+      '/version': {
+        target: 'http://10.206.16.17:18001/',
+        // target: 'http://10.206.0.11:8757', //ceshi
+        // target: 'http://demo.flashcat.cloud',
+        // target: 'http://10.129.0.11:9999', // 非办公局域网可用
+        changeOrigin: true,
+      },
       '/api/n9e-plus': {
-        target: 'http://10.206.16.17:17001/',
+        target: 'http://10.206.16.17:18001/',
         changeOrigin: true,
       },
       '/api/n9e/proxy': {
-        target: 'http://10.206.16.17:17001/',
+        target: 'http://10.206.16.17:18001/',
         changeOrigin: true,
       },
       '/api/n9e/datasource': {
-        target: 'http://10.206.16.17:17001/',
+        target: 'http://10.206.16.17:18001/',
         changeOrigin: true,
       },
       '/api/n9e': {
-        target: 'http://10.206.16.17:17001/',
+        target: 'http://10.206.16.17:18001/',
         changeOrigin: true,
       },
       '/api/fc-brain': {
