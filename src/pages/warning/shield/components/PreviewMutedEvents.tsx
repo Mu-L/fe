@@ -78,11 +78,9 @@ export default function PreviewMutedEvents(props: Props) {
       },
     },
   ];
-  const fetchData = () => {
-    form.validateFields().then((values: any) => {
-      previewMutedEvents(processFormValues(values), values.group_id).then((res) => {
-        setData(res.dat || []);
-      });
+  const fetchData = (values) => {
+    previewMutedEvents(processFormValues(values), values.group_id).then((res) => {
+      setData(res.dat || []);
     });
   };
 
@@ -90,8 +88,10 @@ export default function PreviewMutedEvents(props: Props) {
     <>
       <Button
         onClick={() => {
-          setVisible(true);
-          fetchData();
+          form.validateFields().then((values: any) => {
+            setVisible(true);
+            fetchData(values);
+          });
         }}
       >
         屏蔽预览
@@ -117,7 +117,7 @@ export default function PreviewMutedEvents(props: Props) {
                 selectedRowKeys,
                 () => {
                   setSelectedRowKeys([]);
-                  fetchData();
+                  fetchData(form.getFieldsValue());
                 },
                 t,
               );
