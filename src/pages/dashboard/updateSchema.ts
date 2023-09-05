@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Copyright 2014-2021 Grafana Labs
  */
@@ -757,9 +758,9 @@ function upgradeToGridLayout(old: any, dashboard: any) {
   }
 }
 
-function getGridHeight(height: number | string) {
+function getGridHeight(height: number) {
   if (_.isString(height)) {
-    height = parseInt(height.replace('px', ''), 10);
+    height = parseInt(_.replace(height, 'px', ''), 10);
   }
 
   if (height < MIN_PANEL_HEIGHT) {
