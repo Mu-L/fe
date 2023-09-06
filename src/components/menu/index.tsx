@@ -233,14 +233,14 @@ const getMenuList = (t) => {
         key: '/collects',
         label: t('采集配置'),
       });
-      targets.children?.push({
-        key: '/network-devices',
-        label: t('网络设备'),
-      });
-      targets.children?.push({
-        key: '/collect-tpls',
-        label: t('采集模板'),
-      });
+      // targets.children?.push({
+      //   key: '/network-devices',
+      //   label: t('网络设备'),
+      // });
+      // targets.children?.push({
+      //   key: '/collect-tpls',
+      //   label: t('采集模板'),
+      // });
     }
     const systemMenu = _.find(menuList, (item) => item.key === 'help');
     if (systemMenu) {
@@ -250,21 +250,21 @@ const getMenuList = (t) => {
       });
     }
 
-    const logIndex = _.findIndex(menuList, (item) => item.key === 'log');
-    if (logIndex !== -1) {
-      menuList.splice(logIndex, 0, {
-        key: 'dial-analysis',
-        icon: <Icon component={menuIcon.DialAnalysis as any} />,
-        activeIcon: <Icon component={menuIcon.DialAnalysisHover as any} />,
-        label: t('拨测分析'),
-        children: [
-          {
-            key: '/dial-analysis',
-            label: t('拨测分析'),
-          },
-        ],
-      });
-    }
+    // const logIndex = _.findIndex(menuList, (item) => item.key === 'log');
+    // if (logIndex !== -1) {
+    //   menuList.splice(logIndex, 0, {
+    //     key: 'dial-analysis',
+    //     icon: <Icon component={menuIcon.DialAnalysis as any} />,
+    //     activeIcon: <Icon component={menuIcon.DialAnalysisHover as any} />,
+    //     label: t('拨测分析'),
+    //     children: [
+    //       {
+    //         key: '/dial-analysis',
+    //         label: t('拨测分析'),
+    //       },
+    //     ],
+    //   });
+    // }
   }
   return menuList;
 };
