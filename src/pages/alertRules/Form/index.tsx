@@ -140,33 +140,21 @@ export default function index(props: IProps) {
               >
                 {t('common:btn.save')}
               </Button>
-              <Tooltip
-                title={
-                  <Trans
-                    ns='alertRules'
-                    i18nKey='testTip'
-                    components={{
-                      br: <br />,
-                    }}
-                  />
-                }
+              {/* <Button
+                onClick={() => {
+                  form
+                    .validateFields()
+                    .then(async (values) => {
+                      const data = processFormValues(values) as any;
+                      validateRule(data);
+                    })
+                    .catch((err) => {
+                      console.error(err);
+                    });
+                }}
               >
-                <Button
-                  onClick={() => {
-                    form
-                      .validateFields()
-                      .then(async (values) => {
-                        const data = processFormValues(values) as any;
-                        validateRule(data);
-                      })
-                      .catch((err) => {
-                        console.error(err);
-                      });
-                  }}
-                >
-                  {t('common:btn.test')}
-                </Button>
-              </Tooltip>
+                {t('common:btn.test')}
+              </Button> */}
               <Link to='/alert-rules'>
                 <Button>{t('common:btn.cancel')}</Button>
               </Link>
