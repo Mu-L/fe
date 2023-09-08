@@ -110,6 +110,14 @@ export function getDefaultValuesByProd(prod, defaultBrainParams) {
       rule_config: defaultRuleConfig.logging,
     };
   }
+  if (prod === 'loki') {
+    return {
+      prod,
+      cate: 'loki',
+      datasource_ids: [DATASOURCE_ALL],
+      rule_config: defaultRuleConfig.loki,
+    };
+  }
 }
 
 export function getDefaultValuesByCate(prod, cate) {
@@ -142,6 +150,14 @@ export function getDefaultValuesByCate(prod, cate) {
           },
         ],
       },
+    };
+  }
+  if (cate === 'loki') {
+    return {
+      prod,
+      cate,
+      datasource_ids: [DATASOURCE_ALL],
+      rule_config: defaultRuleConfig.loki,
     };
   }
   if (_.isFunction(alertUtils.getDefaultValuesByCate)) {
