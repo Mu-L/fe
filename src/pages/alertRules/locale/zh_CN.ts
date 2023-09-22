@@ -137,9 +137,5 @@ const zh_CN = {
     },
   },
   brain_result_btn: '训练结果',
-  testTip: `
-  规则有效性检查，包括以下检查项：<br />
-  1. 用户联系方式有效性检查
-  `,
 };
 export default zh_CN;

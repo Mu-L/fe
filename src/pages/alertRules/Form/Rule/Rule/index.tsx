@@ -17,6 +17,5 @@
 
 import Host from './Host';
 import Metric from './Metric';
-import Loki from './Log';
 
-export { Host, Metric, Loki };
+export { Host, Metric };

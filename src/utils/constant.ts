@@ -62,8 +62,6 @@ export const chartDefaultOptions = {
 enum BaseDatasourceCateEnum {
   prometheus = 'prometheus',
   elasticsearch = 'elasticsearch',
-  tdengine = 'tdengine',
-  loki = 'loki',
 }
 
 export const DatasourceCateEnum = { ...BaseDatasourceCateEnum, ...AdvancedDatasourceCateEnum };

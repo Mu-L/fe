@@ -31,7 +31,6 @@ import {
   SyncOutlined,
   DragOutlined,
   WarningOutlined,
-  ExportOutlined,
 } from '@ant-design/icons';
 import { IRawTimeRange } from '@/components/TimeRangePicker';
 import Timeseries from './Timeseries';
@@ -73,7 +72,6 @@ function index(props: IProps) {
   const [visible, setVisible] = useState(false);
   const values = _.cloneDeep(props.values);
   const ref = useRef<HTMLDivElement>(null);
-  const tableRef = useRef<any>(null);
   const bodyWrapRef = useRef<HTMLDivElement>(null);
   const [inViewPort] = useInViewport(ref);
   const [inspect, setInspect] = useState(false);
@@ -112,7 +110,7 @@ function index(props: IProps) {
   const RendererCptMap = {
     timeseries: () => <Timeseries {...subProps} themeMode={themeMode} time={time} />,
     stat: () => <Stat {...subProps} bodyWrapRef={bodyWrapRef} themeMode={themeMode} />,
-    table: () => <Table {...subProps} themeMode={themeMode} time={time} ref={tableRef} />,
+    table: () => <Table {...subProps} themeMode={themeMode} time={time} />,
     pie: () => <Pie {...subProps} themeMode={themeMode} time={time} />,
     hexbin: () => <Hexbin {...subProps} themeMode={themeMode} time={time} />,
     barGauge: () => <BarGauge {...subProps} themeMode={themeMode} time={time} />,
@@ -197,7 +195,7 @@ function index(props: IProps) {
                     placement='bottom'
                     getPopupContainer={() => ref.current!}
                     overlayStyle={{
-                      minWidth: '130px',
+                      minWidth: '100px',
                     }}
                     visible={visible}
                     onVisibleChange={(visible) => {
@@ -254,18 +252,6 @@ function index(props: IProps) {
                           <ShareAltOutlined style={{ marginRight: 8 }} />
                           {t('share_btn')}
                         </Menu.Item>
-                        {values.type === 'table' && (
-                          <Menu.Item
-                            onClick={() => {
-                              tableRef.current.exportCsv();
-                            }}
-                            key='export_btn'
-                          >
-                            <ExportOutlined style={{ marginRight: 8 }} />
-                            {t('export_btn')}
-                          </Menu.Item>
-                        )}
-
                         <Menu.Item
                           onClick={() => {
                             setVisible(false);

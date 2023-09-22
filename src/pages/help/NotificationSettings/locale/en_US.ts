@@ -47,7 +47,6 @@ const en_US = {
   },
   smtp: {
     title: 'SMTP',
-    testMessage: 'Test email has been sent, please check',
   },
   ibex: {
     title: 'Ibex Settings',

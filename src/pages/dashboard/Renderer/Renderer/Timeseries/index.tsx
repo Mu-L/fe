@@ -375,6 +375,7 @@ export default function index(props: IProps) {
                 rowKey='id'
                 size='small'
                 className='scroll-container-table'
+                scroll={{ x: 650 }}
                 columns={tableColumn}
                 dataSource={legendData}
                 locale={{

@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import { Space, Form, Radio } from 'antd';
 import _ from 'lodash';
 import { useTranslation } from 'react-i18next';
-import { DatasourceCateEnum } from '@/utils/constant';
 // @ts-ignore
 import PlusQueryBuilder from 'plus:/parcels/Dashboard/QueryBuilder';
 import OrganizeFields from '../TransformationsEditor/OrganizeFields';
 import DatasourceSelect from './components/DatasourceSelect';
 import Prometheus from './Prometheus';
 import Elasticsearch from './Elasticsearch';
-import { QueryBuilder as TDengine } from '@/plugins/TDengine';
 
 export default function index({ chartForm, type, variableConfig, dashboardId }) {
   const { t } = useTranslation('dashboard');
@@ -40,14 +38,11 @@ export default function index({ chartForm, type, variableConfig, dashboardId }) 
         <Form.Item shouldUpdate={(prev, curr) => prev.datasourceCate !== curr.datasourceCate} noStyle>
           {({ getFieldValue }) => {
             const cate = getFieldValue('datasourceCate') || 'prometheus';
-            if (cate === DatasourceCateEnum.prometheus) {
+            if (cate === 'prometheus') {
               return <Prometheus chartForm={chartForm} variableConfig={variableConfig} dashboardId={dashboardId} />;
             }
-            if (cate === DatasourceCateEnum.elasticsearch) {
+            if (cate === 'elasticsearch') {
               return <Elasticsearch chartForm={chartForm} variableConfig={variableConfig} dashboardId={dashboardId} />;
-            }
-            if (cate === DatasourceCateEnum.tdengine) {
-              return <TDengine chartForm={chartForm} variableConfig={variableConfig} dashboardId={dashboardId} />;
             }
             return <PlusQueryBuilder cate={cate} form={chartForm} variableConfig={variableConfig} dashboardId={dashboardId} />;
           }}

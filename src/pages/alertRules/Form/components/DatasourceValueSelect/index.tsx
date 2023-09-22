@@ -42,7 +42,7 @@ export default function index({ setFieldsValue, cate, datasourceList, mode, requ
     }
   };
 
-  if (cate === 'prometheus' || cate === 'loki') {
+  if (cate === 'prometheus') {
     datasourceList = [
       {
         id: DATASOURCE_ALL,

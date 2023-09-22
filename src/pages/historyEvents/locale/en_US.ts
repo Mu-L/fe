@@ -27,7 +27,6 @@ const en_US = {
     host: 'Host',
     logging: 'Log',
     anomaly: 'Anomaly',
-    loki: 'Loki',
   },
 };
 export default en_US;

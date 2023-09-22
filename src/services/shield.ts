@@ -50,10 +50,3 @@ export const updateShields = function (data: { ids: React.Key[]; fields: any }, 
     data: data,
   });
 };
-
-export const previewMutedEvents = function (data: any, busiId: number) {
-  return request(`/api/n9e/busi-group/${busiId}/alert-mutes/preview`, {
-    method: RequestMethod.Post,
-    data: data,
-  });
-};

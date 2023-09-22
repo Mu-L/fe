@@ -8,7 +8,6 @@ const en_US = {
   refresh_tip: 'Refresh interval less than step({{num}}s) will not update data',
   refresh_btn: 'Refresh',
   share_btn: 'Share',
-  export_btn: 'Export (CSV)',
   inspect_btn: 'Inspect',
   public: {
     name: 'Public',
@@ -187,17 +186,7 @@ const en_US = {
       decimals: 'Decimals',
     },
     overrides: {
-      matcher: {
-        id: 'Matcher',
-        byFrameRefID: {
-          option: 'By query condition name',
-          name: 'Query condition name',
-        },
-        byName: {
-          option: 'By field name',
-          name: 'Field name',
-        },
-      },
+      matcher: 'Matcher',
     },
     custom: {
       title: 'Graph styles',
@@ -222,7 +211,6 @@ const en_US = {
       reverseColorOrder: 'Reverse color order', // hexbin
       colorDomainAuto: 'Color domain auto', // hexbin
       colorDomainAuto_tip: 'By default, the min max value is automatically taken from the series', // hexbin
-      fontBackground: 'Font background', // hexbin
       detailName: 'Link name',
       detailUrl: 'Link addr',
       pie: {

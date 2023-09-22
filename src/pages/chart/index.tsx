@@ -20,10 +20,9 @@ import { Space, Alert } from 'antd';
 import { FieldNumberOutlined } from '@ant-design/icons';
 import { useParams } from 'react-router';
 import _ from 'lodash';
-import moment from 'moment';
 import { useTranslation } from 'react-i18next';
 import { GetTmpChartData } from '@/services/metric';
-import { TimeRangePickerWithRefresh, IRawTimeRange, isMathString } from '@/components/TimeRangePicker';
+import { TimeRangePickerWithRefresh, IRawTimeRange } from '@/components/TimeRangePicker';
 import Resolution from '@/components/Resolution';
 import { CommonStateContext } from '@/App';
 import Renderer from '../dashboard/Renderer/Renderer';
@@ -64,17 +63,7 @@ export default function Chart() {
         });
       datasourceCate.current = _.find(datasourceCateOptions, { value: data[0].dataProps.datasourceCate })?.label;
       datasourceName.current = data[0].dataProps.datasourceName;
-      const curRange = data[0].dataProps.range;
-      if (curRange) {
-        if (isMathString(curRange?.start) && isMathString(curRange?.end)) {
-          setRange(curRange);
-        } else {
-          setRange({
-            start: moment(curRange?.start),
-            end: moment(curRange?.end),
-          });
-        }
-      }
+      setRange(data[0].dataProps.range);
       setChartData(data);
     });
   };
@@ -97,7 +86,6 @@ export default function Chart() {
                   // refreshTooltip={t('refresh_tip', { num: getStepByTimeAndStep(range, step) })}
                   onChange={setRange}
                   value={range}
-                  dateFormat='YYYY-MM-DD HH:mm:ss'
                 />
               </Space>
             </div>

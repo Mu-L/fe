@@ -48,7 +48,6 @@ const zh_HK = {
   },
   smtp: {
     title: 'SMTP 設定',
-    testMessage: '已發送測試郵件，請查收',
   },
   ibex: {
     title: '自愈配置',

@@ -27,7 +27,6 @@ const zh_CN = {
     host: 'Host',
     logging: 'Log',
     anomaly: 'Anomaly',
-    loki: 'Loki',
   },
 };
 export default zh_CN;

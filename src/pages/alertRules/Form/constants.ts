@@ -55,15 +55,6 @@ export const defaultRuleConfig = {
     algorithm: 'holtwinters',
     severity: 2,
   },
-  loki: {
-    queries: [
-      {
-        // log_ql: '',
-        prom_ql: '', // 为了兼容老版本
-        severity: 2,
-      },
-    ],
-  },
 };
 
 export const defaultValues = {
@@ -97,11 +88,6 @@ export const ruleTypeOptions = [
   {
     label: 'Host',
     value: 'host',
-    pro: false,
-  },
-  {
-    label: 'Loki',
-    value: 'loki',
     pro: false,
   },
 ];

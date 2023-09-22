@@ -8,7 +8,6 @@ const zh_HK = {
   refresh_tip: '刷新間隔小於 step({{num}}s) 將不會更新資料',
   refresh_btn: '刷新',
   share_btn: '分享',
-  export_btn: '匯出（CSV）',
   inspect_btn: '排查',
   public: {
     '0': {
@@ -193,17 +192,7 @@ const zh_HK = {
       decimals: '小數位數',
     },
     overrides: {
-      matcher: {
-        id: '匹配類型',
-        byFrameRefID: {
-          option: '根據查詢條件名稱',
-          name: '查詢條件名稱',
-        },
-        byName: {
-          option: '根據字段名',
-          name: '字段名',
-        },
-      },
+      matcher: '查詢條件名稱',
     },
     custom: {
       title: '圖表樣式',
@@ -228,7 +217,6 @@ const zh_HK = {
       reverseColorOrder: '反轉顏色',
       colorDomainAuto: '自動 min/max 值',
       colorDomainAuto_tip: '預設自動從 series 裏面取 min max 值',
-      fontBackground: '文字背景色',
       detailName: '連結名稱',
       detailUrl: '連結地址',
       pie: {

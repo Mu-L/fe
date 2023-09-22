@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { Form, Button, message, Space, Popover, Input } from 'antd';
+import React, { useEffect } from 'react';
+import { Form, Button, message } from 'antd';
 import { useTranslation } from 'react-i18next';
 import CodeMirror from '@uiw/react-codemirror';
 import { EditorView } from '@codemirror/view';
-import { getNotifyConfig, putNotifyConfig, smtpConfigTest } from '../services';
+import { getNotifyConfig, putNotifyConfig } from '../services';
 
 export default function index() {
   const [form] = Form.useForm();
   const { t } = useTranslation('notificationSettings');
-  const [email, setEmail] = useState('');
-  const [testPopoverVisible, setTestPopoverVisible] = useState(false);
 
   useEffect(() => {
     getNotifyConfig('smtp_config').then((res) => {
@@ -46,62 +44,18 @@ export default function index() {
           />
         </Form.Item>
         <div>
-          <Space>
-            <Button
-              type='primary'
-              onClick={() => {
-                form.validateFields().then((values) => {
-                  putNotifyConfig(values).then(() => {
-                    message.success(t('common:success.save'));
-                  });
+          <Button
+            type='primary'
+            onClick={() => {
+              form.validateFields().then((values) => {
+                putNotifyConfig(values).then(() => {
+                  message.success(t('common:success.save'));
                 });
-              }}
-            >
-              {t('common:btn.save')}
-            </Button>
-            <Popover
-              trigger={['click']}
-              visible={testPopoverVisible}
-              onVisibleChange={(visible) => {
-                setTestPopoverVisible(visible);
-              }}
-              content={
-                <Space>
-                  <Input
-                    placeholder='Email'
-                    value={email}
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                    }}
-                  />
-                  <Button
-                    type='primary'
-                    onClick={() => {
-                      form.validateFields().then((values) => {
-                        smtpConfigTest({
-                          ...values,
-                          email,
-                        }).then((res) => {
-                          message.success(t('smtp.testMessage'));
-                          setTestPopoverVisible(false);
-                        });
-                      });
-                    }}
-                  >
-                    {t('common:btn.ok')}
-                  </Button>
-                </Space>
-              }
-            >
-              <Button
-                onClick={() => {
-                  setTestPopoverVisible(true);
-                }}
-              >
-                {t('common:btn.test')}
-              </Button>
-            </Popover>
-          </Space>
+              });
+            }}
+          >
+            {t('common:btn.save')}
+          </Button>
         </div>
       </Form>
     </div>
